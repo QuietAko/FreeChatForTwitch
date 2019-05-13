@@ -13,7 +13,7 @@ function getOptions(badge, global_emotes, streamer_emotes, name, start) {
 function getData(name) {
     $.ajax({
         async: false,
-        url: 'https://api.twitch.tv/kraken/channels/' + name + '?client_id=3fi2bbcez7jgbibtndtwen6jbojdd6',
+        url: 'https://api.twitch.tv/kraken/channels/' + name + '?client_id="client_id"',
         type: 'GET',
         dataType: 'jsonp',
         success: function(data) {
@@ -55,7 +55,7 @@ function getEmotesListGlobal(badge, name) {
 
 function getEmotesListStreamer(badge, global_emotes, name){
   $.ajax({
-    url: 'https://api.twitch.tv/api/channels/'+optionsBot.channels[0]+'/product?client_id=3fi2bbcez7jgbibtndtwen6jbojdd6',
+    url: 'https://api.twitch.tv/api/channels/'+optionsBot.channels[0]+'/product?client_id="client_id"',
     type: 'get',
     dataType: 'json',
     success: function(streamer_emotes){

@@ -10,8 +10,8 @@ var optionsBot = {
       reconnect: true
     },
     identity: {
-        username: "akosbot",//имя бота
-        password: "6fuu12ciayk5jbwsuhhx3u510tz8bx"//токен бота
+        username: "bot_name",//имя бота
+        password: "token_bot"//токен бота
     },
     channels: ['']
 };
