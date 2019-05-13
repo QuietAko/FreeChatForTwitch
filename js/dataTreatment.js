@@ -8,7 +8,8 @@ jQuery(document).ready(function($) {
 });
 
 
-function treatData(badge, global_emotes, streamer_emotes, data, name, start) {
+
+function treatData(badge, global_emotes, streamer_emotes, data, name, start, token, botName) {
     if (data != '' && start == false) {
         console.log(data);
 
@@ -152,6 +153,17 @@ function createMessage(badge, global_emotes, streamer_emotes, username, message)
 
 
 
+fs.readFile('./settings.json', 'utf-8', function(error, data){
+
+        data = JSON.parse(data);
+
+        if (data["settings"]["token"] != "" && data["settings"]["botName"] != "") {
+            getOptions(null, null, null, null, false, data["settings"]["token"], data["settings"]["botName"])
+        }
+        else{
+        console.log("Token or bot's name aren't indicated")
+        }
 
 
-getOptions(null, null, null, null, false)
+})
+
