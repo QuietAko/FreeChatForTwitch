@@ -1,0 +1,84 @@
+body {
+ padding: 0px;
+ margin: 0px;
+}
+
+.badge_image{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+#options-chat{
+  position: relative;
+}
+
+#background-exchat{
+  position: relative;
+  display: inline-block;
+}
+.options{
+  display: inline-flex;
+}
+.options-btn{
+    font-size: 12px;
+    font-style: normal;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+#chat{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.author{
+	position: relative;
+	color: black;
+}
+.author_sub{
+	position: relative;
+	left: 25px;
+}
+.emotes{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  left: 100%;
+  right: 0;
+}
+
+#title-bar {
+ -webkit-app-region: drag;
+ height: 24px; 
+ padding: none;
+ margin: 0px; 
+}
+
+#title {
+ position: fixed;
+ top: 0px;
+ left: 6px; 
+}
+
+#title-bar-btns {
+  z-index: 999;
+ -webkit-app-region: no-drag;
+ position: fixed;
+ top: 0px;
+ right: 2px;
+}
+
+.message_block{
+	position: relative;
+	display: block;
+}
+.wrap{
+	position: relative;
+	display: inline-block;
+}

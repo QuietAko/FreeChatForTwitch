@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script>
+      window.$ = window.jQuery = require('jquery')
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="node_modules/bootbox.js"></script>
+    <script type="text/javascript" src="js/jscolor.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/getData.js"></script>
+    <script type="text/javascript" src="js/botTwitch.js"></script>
+    <script type="text/javascript" src="js/dataTreatment.js"></script>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+  </head>
+  <body>
+
+  <div id="title-bar">
+      <div id="title-bar-btns">
+           <i  style="color: red;"class="fas fa-minus min-btn"></i>
+           <i  style="color: red;"class="far fa-square max-btn"></i>
+           <i  style="color: red;"class="fas fa-times close-btn"></i>
+      </div>
+ </div>
+  
+  <div id="options-chat">
+    <div id="background-exchat">
+      <p class="options" id="ex-sub">hardplay - sub</p>
+      <button class="jscolor {valueElement:'chosen-value', onFineChange:'setColor(this, 1)'} jscolor-active options options-btn" title='нажмите что бы установить цвет!'/>Color</button>
+      <p class="options" id="ex-notsub">hardplay - not sub</p>
+      <button class="jscolor {valueElement:'chosen-value', onFineChange:'setColor(this, 2)'} jscolor-active options options-btn" title='нажмите что бы установить цвет!'/>Color</button>
+    </div>
+    <button class="jscolor {valueElement:'chosen-value', onFineChange:'setColor(this, 3)'} jscolor-active options options-btn" title='нажмите что бы установить цвет!'/>BG Color</button>
+
+    <div>
+      <input id="name-streamer" type="text" name="" placeholder="Название канала">
+      <input id="limit-message" type="number" name="" placeholder="Лимит сообщений в чате">
+    </div>
+
+    <button id="save-btn" class="options-btn">Сохранить</button>
+  </div>
+  
+<div id="chat">
+    
+</div>
+    
+  </body>
+</html>
+<script>
+require('./renderer.js')
+</script>
+
+<script type="text/javascript">
+  function setColor(el, el2){
+  hex = el.toHEXString()
+  if(el2 == 1){
+    $('#ex-sub').css('color', hex);
+  }
+  else if(el2 == 2){
+    $('#ex-notsub').css('color', hex);
+  }
+  else if(el2 == 3){
+    $('#background-exchat').css('background-color', hex);
+  }
+}
+</script>
