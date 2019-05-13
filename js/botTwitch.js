@@ -17,7 +17,10 @@ var optionsBot = {
 };
 
 
-function startTwtchBot(badge, global_emotes, streamer_emotes, options, name){
+function startTwtchBot(badge, global_emotes, streamer_emotes, options, name, client_id, token, botName){
+
+  optionsBot.identity.username = botName
+  optionsBot.identity.password = token
 
   streamer = options['streamer']
   sub_color = options['sub_color']

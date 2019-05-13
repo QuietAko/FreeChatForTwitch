@@ -9,9 +9,13 @@ jQuery(document).ready(function($) {
 
 
 
-function treatData(badge, global_emotes, streamer_emotes, data, name, start, token, botName) {
+function treatData(badge, global_emotes, streamer_emotes, data, name, start, token, botName, client_id) {
     if (data != '' && start == false) {
         console.log(data);
+
+        cl = client_id
+        bn = botName
+        tn = token
 
         bootbox.prompt({
             title: "Мы нашли настроеные каналы",
@@ -30,7 +34,7 @@ function treatData(badge, global_emotes, streamer_emotes, data, name, start, tok
             inputOptions: createObjects(JSON.parse(data)['items']),
             callback: function(result) {
                 if (result != null) {
-                    getData(result)
+                    getData(result, cl, tn)
                 } else {
                     $('#options-chat').show();
                 }
@@ -47,7 +51,7 @@ function treatData(badge, global_emotes, streamer_emotes, data, name, start, tok
             for(key in data)
                 if (data[key].streamer == name) {
                     console.log('Starting bot .....')
-                    startTwtchBot(badge, global_emotes, streamer_emotes, data[key], name)
+                    startTwtchBot(badge, global_emotes, streamer_emotes, data[key], name, client_id, token, botName)
                 } else {
                     console.log('Error')
                 }
@@ -96,7 +100,7 @@ function writeNewUser() {
 
             final = '{"items":[' + c.join(', ') + ']}';
 
-            fs.writeFile("options.json", final, function(error) {
+            fs.writeFile("./js/options.json", final, function(error) {
                 bootbox.alert("Настройки были созданы и успешно сохранены!");
             })
         }
@@ -157,8 +161,8 @@ fs.readFile('./settings.json', 'utf-8', function(error, data){
 
         data = JSON.parse(data);
 
-        if (data["settings"]["token"] != "" && data["settings"]["botName"] != "") {
-            getOptions(null, null, null, null, false, data["settings"]["token"], data["settings"]["botName"])
+        if (data["settings"]["token"] != "" && data["settings"]["botName"] != "" && data["settings"]["client_id"] != "") {
+            getOptions(null, null, null, null, false, data["settings"]["token"], data["settings"]["botName"], data["settings"]["client_id"])
         }
         else{
         console.log("Token or bot's name aren't indicated")

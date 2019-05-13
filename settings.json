@@ -1,6 +1,7 @@
 {
 	"settings":{
 		"token":"",
-		"botName":""
+		"botName":"",
+		"client_id":""
 	}
 }
